@@ -1,17 +1,18 @@
+const handler = require ('./handler')
 const router = (req, res) => {
   const endpoint = req.url;
   if (endpoint === '/') {
-    handlePublic();
+    handler.handlePublic(res, endpoint);
   } else if (endpoint.includes('public')) {
-    handlePublic();
+    handler.handlePublic (res, endpoint);
   } else if (endpoint === "/city") {
-    handleInput();
+    handler.handleInput();
   } else if (endpoint === "/news") {
-    handleNews();
+    handler.handleNews();
   } else if (endpoint === "/weather") {
-    handleWeather();
+    handler.handleWeather();
   } else {
-    handleNotFound();
+    handler.handleNotFound();
   }
 }
 module.exports = router;
