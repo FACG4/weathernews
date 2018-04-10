@@ -2,6 +2,7 @@
 const router = require('./router');
 const fs = require('fs');
 const path = require ('path');
+// var request = require("request");
 
 const contentType = {
   html : 'text/html',
@@ -44,9 +45,24 @@ const handleInput = (req,res) => {
 
 const handleNews = () => {
  // handle news Api
+ res.writeHead(200, {"Content-Type":application/json});
+ const option = {
+   url,
+   method: 'GET',
+ };
+ req.on
+
 }
 
-const handleWeather = () => {
+const handleWeather = (res,req) => {
+
+  res.writeHead(404,{"content-type": "text/html"})
+  res.end('not found');
+
+
+
+
+
   // handle weather api
 }
 
