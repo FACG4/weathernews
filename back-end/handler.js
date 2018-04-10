@@ -15,20 +15,30 @@ const contentType = {
 const handlePublic = (res, endpoint) => {
   const splitted = endpoint.split('.');
   const extention = splitted[splitted.length-1];
-  fs.readFile(path.join(__dirname,'..',`public${endpoint}` ,(error,data)=>{
+  fs.readFile(path.join(__dirname,'..',`public${endpoint}`) ,(error,data)=>{
     if(error){
       console.log(error);
     }
     else {
       res.writeHead(200, {"Content-Type":contentType[extention]});
       res.end(data)
-
     }
-  })
-
+  });
 }
 
-const handleInput = () => {
+const handleInput = (req,res) => {
+  let data = '';
+  req.on('data',(chunk)=>{
+    data += chunk;
+
+
+  })
+  req.on('end',()=>{
+    console.log(data);
+  })
+  req.on('error',()=>{
+    console.log('error');
+  })
   // handle city name
 }
 
@@ -43,8 +53,8 @@ const handleWeather = () => {
 const handleNotFound = () => {
   // not found page
 }
-module.export = {
-  handlePublic,
+module.exports = {
+  handlePublic ,
   handleInput,
   handleNews,
   handleWeather,
