@@ -13,8 +13,10 @@ const contentType = {
 }
 
 const handlePublic = (res, endpoint) => {
-  const splitted = endpoint.split('.');
-  const extention = splitted[splitted.length-1];
+  const extention = endpoint.split('.')[1];
+  // const extention = splitted[splitted.length-1];
+  // console.log(extention);
+  
   fs.readFile(path.join(__dirname,'..',`public${endpoint}`) ,(error,data)=>{
     if(error){
       console.log(error);

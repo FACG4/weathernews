@@ -2,17 +2,19 @@ const handler = require ('./handler')
 const router = (req, res) => {
   const endpoint = req.url;
   if (endpoint === '/') {
-    handler.handlePublic(res, endpoint);
-  } else if (endpoint.includes('public')) {
+    handler.handlePublic(res, '/index.html');
+  } else if (endpoint.includes('public/')) {
+    console.log(endpoint);
     handler.handlePublic (res, endpoint);
   } else if (endpoint === "/city") {
-    handler.handleInput();
+    handler.handleInput(req, res);
   } else if (endpoint === "/news") {
-    handler.handleNews();
+    handler.handleNews(req, res);
   } else if (endpoint === "/weather") {
     handler.handleWeather();
   } else {
-    handler.handleNotFound();
+    handler.handlePublic (res, endpoint);
+    handler.handleNotFound(req, res);
   }
 }
 module.exports = router;
