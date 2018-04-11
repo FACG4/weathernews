@@ -11,7 +11,6 @@
 
 <body>
   <form method="post" action="/city">
-    <input type="text" class="city" id="city" placeholder="Enter your city">
     <select name="countryCode" id="">
       <option data-countryCode="GB" value="44" Selected>UK </option>
       <option data-countryCode="US" value="1">USA </option>
@@ -230,6 +229,8 @@
       <option data-countryCode="ZM" value="260">Zambia</option>
       <option data-countryCode="ZW" value="263">Zimbabwe</option>
     </select>
+    <input type="text" class="city" id="city" placeholder="Enter your city">
+    <button type="submit">Search</button>
   </form>
   <script src="/public/js/dom.js"></script>
   <script src="/public/js/fetch.js"></script>

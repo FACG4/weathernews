@@ -1,6 +1,7 @@
 const router = require('./router');
 const fs = require('fs');
-const path = require ('path');
+const querystring = require('querystring');
+const path = require('path');
 
 const contentType = {
   html: 'text/html',
@@ -21,15 +22,21 @@ const handlePublic = (res, endpoint) => {
       res.end(data);
     }
   });
-}
+};
 
 const handleInput = (req, res) => {
+  console.log(req);
+  res.writeHead(200, { 'Content-Type': 'application/json' });
   let data = '';
   req.on('data', (chunk) => {
     data += chunk;
+    console.log(chunk);
+    console.log(querystring.parse(chunk));
+    
+    
   });
   req.on('end', () => {
-    console.log(data);
+    console.log('data',data);
   });
   req.on('error', () => {
     console.log('error');
