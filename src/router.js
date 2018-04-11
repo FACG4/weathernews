@@ -11,7 +11,7 @@ const router = (req, res) => {
   } else if (endpoint === "/news") {
     handler.handleNews(req, res);
   } else if (endpoint === "/weather") {
-    handler.handleWeather(req, res);
+    handler.handleWeather(req,res);
   } else {
     handler.handleNotFound(req, res);
   }
