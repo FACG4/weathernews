@@ -3,9 +3,9 @@ const router = require('./router');
 const supertest = require('supertest');
 
 test('Initialise', (t) => {
-  const num = 2;
-  t.equal(num, 2, 'Tape is working');
-  t.end();
+const num = 2;
+t.equal(num, 2, 'Tape is working');
+t.end();
 });
 
 
@@ -36,7 +36,7 @@ t.end();
 
 });
 
-// 
+//
 // test(' handlWeather wind speed',(t) => {
 // supertest(router)
 // .get('/weather')
@@ -62,5 +62,5 @@ t.error(err)
 t.equal(res.statusCode, 200, 'Should return 200');
 t.end();
 
-});
+})
 })
