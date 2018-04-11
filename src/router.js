@@ -11,11 +11,10 @@ const router = (req, res) => {
   } else if (endpoint === "/news") {
     handler.handleNews(req, res);
   } else if (endpoint === "/weather") {
-    handler.handleWeather(req, res);
+    handler.handleWeather(req,res);
   } else {
     handler.handleNotFound(req, res);
-    // res.writeHead(404, 'Content-type : text/html');
-    // res.end('<h1>Erorr not found</h1>');
+
   }
 }
 module.exports = router;

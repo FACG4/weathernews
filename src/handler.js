@@ -4,6 +4,7 @@ const querystring = require('querystring');
 const path = require('path');
 const request = require('request');
 
+
 const contentType = {
   html: 'text/html',
   css: 'text/css',
@@ -19,21 +20,21 @@ const handlePublic = (res, endpoint) => {
     if (error) {
       console.log(error);
     } else {
-      res.writeHead(200, { 'Content-Type': contentType[extention] });
+      res.writeHead(200, {
+        'Content-Type': contentType[extention]
+      });
       res.end(data);
     }
   });
 };
 
 const handleInput = (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.writeHead(200, {
+    'Content-Type': 'application/json'
+  });
   let data = '';
   req.on('data', (chunk) => {
     data += chunk;
-    console.log(chunk);
-    console.log(querystring.parse(chunk));
-
-
 
 
   });
@@ -46,12 +47,21 @@ const handleInput = (req, res) => {
     console.log('error');
   });
 };
+const handleNews = (req, res) => {
+  let city = 'gaza';
+  const url = `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${city}&api-key=ae3f05c0ba7841838ff1a1006a88e0f9`
+  request(url, function(error, response, body) {
+    console.log(error);
+    const data = JSON.parse(body);
+    data.response.docs.forEach((report)=>{
+      const snippet = report.snippet;
+      const image = `https://static01.nyt.com/${report.multimedia[0].url}`;
+      const reportUrl = report.web_url;
+      console.log(snippet);
 
-let city = "gaza";
-let code = "PS";
+    })
+  });
 
-const handleNews = () => {
-  // handle news Api
 };
 
 
@@ -91,7 +101,7 @@ const handleWeather = (req, res) => {
 const handleNotFound = (req,res) => {
   // not found page
   res.writeHead(404, 'Content-type : text/html');
-  res.end('<h1>Erorr not found</h1>');
+  res.end('<h1>Page not found</h1>');
 };
 module.exports = {
   handlePublic,
