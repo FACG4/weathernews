@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./back-end/server.js"
+    "start": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,15 @@
   },
   "homepage": "https://github.com/FACG4/weathernews#readme",
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
     "nodemon": "^1.17.3",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
   }
 }
