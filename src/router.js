@@ -1,3 +1,5 @@
+
+
 const path = require('path');
 const handler = require ('./handler');
 const router = (req, res) => {
@@ -8,10 +10,13 @@ const router = (req, res) => {
     handler.handlePublic (res, endpoint);
   } else if (endpoint === "/city") {
     handler.handleInput(req, res);
-  } else if (endpoint === "/news") {
-    handler.handleNews(req, res);
-  } else if (endpoint === "/weather") {
-    handler.handleWeather(req,res);
+      
+      // (data)=>{
+      // console.log('fgfgfgf',data)
+      // res.end(JSON.stringify(data))
+    // });
+  // } else if (endpoint === "/news") {
+  // } else if (endpoint === "/weather") {
   } else {
     handler.handleNotFound(req, res);
 
