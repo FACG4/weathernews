@@ -44,8 +44,8 @@ document.getElementById('search').addEventListener('click', (e) => {
       snippet.textContent = item.snippet;
 
       link.appendChild(img);
-      section.appendChild(snippet);
       section.appendChild(link);
+      section.appendChild(snippet);
 
       news.appendChild(section);
     }
