@@ -47,8 +47,11 @@ const handleInput = (req, res) => {
     console.log('error');
   });
 };
+
+
+let city = 'gaza';
+let code="PS"
 const handleNews = (req, res) => {
-  let city = 'gaza';
   const url = `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${city}&api-key=ae3f05c0ba7841838ff1a1006a88e0f9`
   request(url, function(error, response, body) {
     console.log(error);
