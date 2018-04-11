@@ -2,6 +2,8 @@ const router = require('./router');
 const fs = require('fs');
 const querystring = require('querystring');
 const path = require('path');
+const request = require('request');
+
 
 const contentType = {
   html: 'text/html',
@@ -18,21 +20,25 @@ const handlePublic = (res, endpoint) => {
     if (error) {
       console.log(error);
     } else {
-      res.writeHead(200, { 'Content-Type': contentType[extention] });
+      res.writeHead(200, {
+        'Content-Type': contentType[extention]
+      });
       res.end(data);
     }
   });
 };
 
 const handleInput = (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.writeHead(200, {
+    'Content-Type': 'application/json'
+  });
   let data = '';
   req.on('data', (chunk) => {
     data += chunk;
-    
-    
+
+
   });
-  
+
   req.on('end', () => {
     console.log(querystring.parse(data));
 
@@ -41,9 +47,16 @@ const handleInput = (req, res) => {
     console.log('error');
   });
 };
-
-const handleNews = () => {
-  // handle news Api
+const handleNews = (req, res) => {
+  let city = 'gaza';
+  const url = `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${city}&api-key=ae3f05c0ba7841838ff1a1006a88e0f9`
+  request(url, function(error, response, body) {
+    console.log(error);
+    const data = JSON.parse(body);
+    const snippet = data.response.docs[0].snippet;
+    const image = `https://static01.nyt.com/${data.response.docs[0].multimedia[0].url}`;
+    const reportUrl = data.response.docs[0].web_url;
+  });
 };
 
 const handleWeather = () => {
