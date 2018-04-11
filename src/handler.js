@@ -26,7 +26,6 @@ const handlePublic = (res, endpoint) => {
 };
 
 const handleInput = (req, res) => {
-  console.log(req);
   res.writeHead(200, { 'Content-Type': 'application/json' });
   let data = '';
   req.on('data', (chunk) => {
@@ -35,9 +34,13 @@ const handleInput = (req, res) => {
     console.log(querystring.parse(chunk));
 
 
+    
+    
   });
+  
   req.on('end', () => {
-    console.log('data',data);
+    console.log(querystring.parse(data));
+
   });
   req.on('error', () => {
     console.log('error');
