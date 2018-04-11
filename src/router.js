@@ -14,6 +14,7 @@ const router = (req, res) => {
     handler.handleWeather(req,res);
   } else {
     handler.handleNotFound(req, res);
+
   }
 }
 module.exports = router;

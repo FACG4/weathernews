@@ -56,10 +56,15 @@ const handleNews = (req, res) => {
   request(url, function(error, response, body) {
     console.log(error);
     const data = JSON.parse(body);
-    const snippet = data.response.docs[0].snippet;
-    const image = `https://static01.nyt.com/${data.response.docs[0].multimedia[0].url}`;
-    const reportUrl = data.response.docs[0].web_url;
+    data.response.docs.forEach((report)=>{
+      const snippet = report.snippet;
+      const image = `https://static01.nyt.com/${report.multimedia[0].url}`;
+      const reportUrl = report.web_url;
+      console.log(snippet);
+
+    })
   });
+
 };
 
 
@@ -96,8 +101,10 @@ const handleWeather = (req, res) => {
 
 
 }
-const handleNotFound = () => {
+const handleNotFound = (req,res) => {
   // not found page
+  res.writeHead(404, 'Content-type : text/html');
+  res.end('<h1>Page not found</h1>');
 };
 module.exports = {
   handlePublic,
