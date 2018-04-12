@@ -93,12 +93,10 @@ const handleWeather = (city, code, cb) => {
     const data = JSON.parse(body);
     // console.log('data',data, "city", city, "code", code);
 
-    const main = data.main;
-    const temp = (main.temp) - 273.15;
-    const pressure = main.pressure;
-    const humidity = main.humidity;
-    const wind = data.wind;
-    const speed = wind.speed;
+    const { main, wind, weather } = data;
+  const { pressure, humidity } = main;
+  const { speed } = wind;
+  const { icon, description } = weather[0];
     // For code 501 - moderate rain icon = "10d"
     // URL is
     // http://openweathermap.org/img/w/10d.png
@@ -106,9 +104,9 @@ const handleWeather = (city, code, cb) => {
     // <img src="" id="weatherIconData"/>
 
 
-    const weather = data.weather;
-    const icon = weather[0].icon;
-    const description = weather[0].description;
+    // // const weather = data.weather;
+    // const icon = weather[0].icon;
+    // const description = weather[0].description;
     // console.log(description);
     const iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
 
