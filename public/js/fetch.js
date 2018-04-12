@@ -1,5 +1,3 @@
-
-
 const input = document.getElementById('city');
 const code = document.querySelector('#countryCode');
 let info;
@@ -28,7 +26,6 @@ document.getElementById('search').addEventListener('click', (e) => {
   };
 
   fetch('/city', (data) => {
-    console.log(data);
     const container = document.querySelector('.container');
     const news = document.getElementById('news');
     const weather = document.getElementById('weather');
@@ -53,26 +50,23 @@ document.getElementById('search').addEventListener('click', (e) => {
     const icon = document.createElement('img');
     icon.src = data.body.iconUrl;
     const temp = document.createElement('p');
-    temp.textContent = data.body.temp;
-
+    temp.textContent = (data.body.temp) - 273.15;
     const tempLabel = document.createElement('label');
-    tempLabel.textContent = "Tempreture";
-
-
+    tempLabel.textContent = 'Tempreture';
     const pressure = document.createElement('p');
     pressure.textContent = data.body.pressure;
     const pressureLabel = document.createElement('label');
-    pressureLabel.textContent = "Pressure";
+    pressureLabel.textContent = 'Pressure';
 
     const speed = document.createElement('p');
     speed.textContent = data.body.speed;
     const speedLabel = document.createElement('label');
-    speedLabel.textContent = "Speed";
+    speedLabel.textContent = 'Speed';
 
     const humidity = document.createElement('p');
     humidity.textContent = data.body.humidity;
     const humidityLabel = document.createElement('label');
-  humidityLabel.textContent = "Humidity";
+    humidityLabel.textContent = 'Humidity';
 
     const description = document.createElement('p');
     description.textContent = data.body.description;
