@@ -54,22 +54,42 @@ document.getElementById('search').addEventListener('click', (e) => {
     icon.src = data.body.iconUrl;
     const temp = document.createElement('p');
     temp.textContent = data.body.temp;
+
+    const tempLabel = document.createElement('label');
+    tempLabel.textContent = "Tempreture";
+
+
     const pressure = document.createElement('p');
     pressure.textContent = data.body.pressure;
+    const pressureLabel = document.createElement('label');
+    pressureLabel.textContent = "Pressure";
+
     const speed = document.createElement('p');
     speed.textContent = data.body.speed;
+    const speedLabel = document.createElement('label');
+    speedLabel.textContent = "Speed";
+
     const humidity = document.createElement('p');
     humidity.textContent = data.body.humidity;
+    const humidityLabel = document.createElement('label');
+  humidityLabel.textContent = "Humidity";
+
     const description = document.createElement('p');
     description.textContent = data.body.description;
     weather.textContent = '';
     const sectionWeather = document.createElement('section');
+    weather.classList.toggle('disable');
     sectionWeather.appendChild(icon);
     sectionWeather.appendChild(description);
+    sectionWeather.appendChild(tempLabel);
     sectionWeather.appendChild(temp);
+    sectionWeather.appendChild(pressureLabel);
     sectionWeather.appendChild(pressure);
+    sectionWeather.appendChild(speedLabel);
     sectionWeather.appendChild(speed);
+    sectionWeather.appendChild(humidityLabel);
     sectionWeather.appendChild(humidity);
+
     weather.appendChild(sectionWeather);
   });
 });
