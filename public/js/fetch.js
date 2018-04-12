@@ -1,5 +1,3 @@
-
-
 const input = document.getElementById('city');
 const code = document.querySelector('#countryCode');
 let info;
@@ -53,7 +51,7 @@ document.getElementById('search').addEventListener('click', (e) => {
     const icon = document.createElement('img');
     icon.src = data.body.iconUrl;
     const temp = document.createElement('p');
-    temp.textContent = data.body.temp;
+    temp.textContent = (data.body.temp) - 273.15;
     const pressure = document.createElement('p');
     pressure.textContent = data.body.pressure;
     const speed = document.createElement('p');
