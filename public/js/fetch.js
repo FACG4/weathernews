@@ -1,5 +1,5 @@
 
-
+//
 const input = document.getElementById('city');
 const code = document.querySelector('#countryCode');
 let info;
