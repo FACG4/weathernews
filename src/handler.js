@@ -15,7 +15,7 @@ const handlePublic = (res, endpoint) => {
   const extention = endpoint.split('.')[1];
   fs.readFile(path.join(__dirname, '..', endpoint), (error, data) => {
     if (error) {
-      console.log(error);
+      // console.log(error);
     } else {
       res.writeHead(200, {
         'Content-Type': contentType[extention],

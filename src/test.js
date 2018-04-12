@@ -1,6 +1,8 @@
 const test = require('tape');
 const router = require('./router');
 const supertest = require('supertest');
+const handleWeather = require('./handler');
+
 
 test('Initialise', (t) => {
   const num = 2;
