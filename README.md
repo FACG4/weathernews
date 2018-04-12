@@ -54,6 +54,6 @@ How to handle our error
 
 Navigate to http://localhost:3000/ in your browser
 
-[check the site](https://.com/#)
+[check the site](https://fagc4.herokuapp.com/)
 
->Done By : Abdelsammad ,Inass,Ishak,Haneen,Razan.
+>Done By : Abdalsamad ,Inass, Haneen,Razan.

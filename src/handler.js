@@ -20,7 +20,7 @@ const handlePublic = (res, endpoint) => {
   const extention = endpoint.split('.')[1];
   fs.readFile(path.join(__dirname, '..', endpoint), (error, data) => {
     if (error) {
-      console.log(error);
+  // console.log(error);
     } else {
       res.writeHead(200, {
         'Content-Type': contentType[extention],
@@ -48,21 +48,20 @@ const handleInput = (req, res) => {
       });
     });
 
-    // handleWeather(req, res);
+
   });
   req.on('error', () => {
     console.log('error');
   });
 };
 
-
-// let city = 'gaza';
-// let code="PS"
 const handleNews = (city, cb) => {
+  
   const url = `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${city}&api-key=ae3f05c0ba7841838ff1a1006a88e0f9`;
   request(url, (error, response, body) => {
-    if (error) { return cb(error); }
-    // console.log(body);
+    // if (error) { return cb(error); }
+
+    console.log(body);
     const data = JSON.parse(body);
     const arr = [];
     // console.log(data.response);
@@ -87,11 +86,12 @@ const handleNews = (city, cb) => {
 
 const handleWeather = (city, code, cb) => {
   // handle weather api
+
   const urlWeather = `http://api.openweathermap.org/data/2.5/weather?q=${city},${code}&appid=36c6a3826ec2fc32974e2115e7ca8d1c`;
   request.get(urlWeather, (error, response, body) => {
-    if (error) { return cb(error); }
+
     const data = JSON.parse(body);
-    // console.log('data',data, "city", city, "code", code);
+
 
     const main = data.main;
     const temp = (main.temp) - 273.15;
@@ -99,17 +99,11 @@ const handleWeather = (city, code, cb) => {
     const humidity = main.humidity;
     const wind = data.wind;
     const speed = wind.speed;
-    // For code 501 - moderate rain icon = "10d"
-    // URL is
-    // http://openweathermap.org/img/w/10d.png
-    // document.getElementById("weatherIconData").src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-    // <img src="" id="weatherIconData"/>
-
 
     const weather = data.weather;
     const icon = weather[0].icon;
     const description = weather[0].description;
-    // console.log(description);
+
     const iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
 
 

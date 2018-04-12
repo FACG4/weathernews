@@ -1,9 +1,8 @@
 body {
   margin-top: 110px;
-  background-image: url("imag9.peg");
+  /* background-image: url("https://images.unsplash.com/photo-1503503330041-4cd943d2b61f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c0b4a2d3084b493224a1c47daff8b390&auto=format&fit=crop&w=802&q=80"); */
   background-size: cover;
-  text-align: center;
-font-family: 'Lobster', cursive;
+  background-color: #FFE4C4;
   /* font-family: 'Ribeye', cursive; */
 }
 
@@ -15,6 +14,13 @@ h1 {
   text-align: center;
   font-size: 70px ;
   color:black;
+  font-family: 'Lobster', cursive;
+
+}
+.form{
+  text-align: center;
+  margin-bottom: 15px;
+
 }
 
 input[type=text] {
@@ -41,7 +47,7 @@ select {
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   margin-top: 20px auto 0 auto;
   text-align: center;
@@ -60,4 +66,31 @@ select {
   cursor: pointer;
   margin-top: 20px auto 0 auto;
   text-align: center;
+}
+
+.col-25 {
+    float: left;
+    width: 15%;
+    margin-top: 6px
+    display: flex;
+    text-align:center;
+    height: 400px;
+    background-color: white
+}
+
+.col-75 {
+    float: left;
+    width: 85%;
+    margin-right: 0;
+    padding-right: 0;
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-75  img {
+  width: 200px;
+  height: 200px;
+}
+.col-75 section{
+  width: 20%;
 }
